@@ -1,0 +1,10 @@
+var MAPP = {};
+MAPP.local = bananas;
+var bananas = ["Ferrari", "Porsche", "Lambo", "Nissan", "Mercedes", "BMW", "Bugatti"]
+function displayName(x) {
+  var i = x;
+  for (i=0; i<bananas.length; i++) {
+        console.log("You have selected car number " + x + ", which is a " + bananas[x]);
+        break;
+    }
+}
