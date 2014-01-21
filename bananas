@@ -1,9 +1,5 @@
 var bananas = ["Boing", "Apple", "Iphone", "Lamborghini", "NissanGTR", "France", "Millions", "London", "House", "Babes"];
 function displayBananas (x) {
-    var i = x
-    for (i = 0; i<bananas.length; i++) {
         console.log("Number " + x + " represents: " + bananas[x]);
-        break;
     }
-}
 displayBananas(4);
