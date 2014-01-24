@@ -1,5 +1,6 @@
-var bananas = ["Boing", "Apple", "Iphone", "Lamborghini", "NissanGTR", "France", "Millions", "London", "House", "Babes"];
-function displayBananas (x) {
+var MAPP = {};
+        MAPP.displayBananas = function displayBananas (x) {
+        var bananas = ["Boing", "Apple", "Iphone", "Lamborghini", "NissanGTR", "France", "Millions", "London", "House", "Babes"];
         console.log("Number " + x + " represents: " + bananas[x]);
-    }
-displayBananas(4);
+    };
+MAPP.displayBananas(4);
