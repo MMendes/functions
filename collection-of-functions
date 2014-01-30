@@ -5,7 +5,7 @@ var store = {
         if(!fn.id) {
             fn.id = store.nextId++;
             return true; 
-            //true could be written as !!(store.cache[fn.id]=fn)
+            //according to the book Secrets of the JS Ninja true could be written as !!(store.cache[fn.id]=fn)
         }
     }
 };
