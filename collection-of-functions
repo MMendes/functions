@@ -1,0 +1,20 @@
+var store = {
+    nextId: 1,
+    cache: {},
+    add: function(fn) {
+        if(!fn.id) {
+            fn.id = store.nextId++;
+            return true; 
+            //true could be written as !!(store.cache[fn.id]=fn)
+        }
+    }
+};
+
+function ninja(){}
+function samurai(){}
+
+store.add(ninja);
+store.add(samurai);
+
+console.log(ninja);//{ [Function: ninja] id: 1 }
+console.log(samurai);//{ [Function: samurai] id: 2 }
