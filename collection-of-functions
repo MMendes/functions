@@ -4,8 +4,11 @@ var store = {
     add: function(fn) {
         if(!fn.id) {
             fn.id = store.nextId++;
-            return true; 
-            //according to the book Secrets of the JS Ninja true could be written as !!(store.cache[fn.id]=fn)
+            return (store.cache[fn.id]=fn);
+            //according to the book Secrets of the JS Ninja "return true" could be written as !!(store.cache[fn.id]=fn)
+            //but by simply writing "return true", nothing woould be stored in "cache".
+            //the use if "!!" is not good practice! Avoid it. Here it was simple referenced to make one aware of its
+            //existence in the language
         }
     }
 };
