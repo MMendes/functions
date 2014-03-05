@@ -1,0 +1,20 @@
+Since functions are not primitive values, this means that functions can have properties.
+
+Suppose you want to write a function that returns a unique integer whenever it is invoked. The function must never return
+the same value twice. In order to manage this the function needs to keep track of the values returned and this value must
+persist accross invocations.
+Instead of polluting the global namespace with a global variable to keep track of the values
+the function has already returned, you can use a property of the Function object to store the information.
+
+Its not as complicated as it might seem. This is an example of a simple counter.
+
+function increaseNumeral () {
+  return increaseNumeral.counter++; //increment and return the counter property with each invocation
+}
+
+increaseNumeral.counter = 0;  //initialize the counter property to 0. This can be done before or after declaring the 
+                              //function, because function declarations are hoisted
+                              
+
+increaseNumeral (); //0
+increaseNumeral (); //1 .... each time you invoke the function the result with increase by 1
