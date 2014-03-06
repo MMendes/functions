@@ -1,0 +1,49 @@
+In the file "simple counter", I defined a function to create a simple counter, using the Function object to 
+privately store and maintain track of the counter value for each iteration.
+But what if I could make it more secure? I can, by using closures.
+
+In a nutshell a closure captures the local variable (and parameter) bindings of the outer function within which they were
+defined.
+
+This is easier to understand by remembering that JavaScript uses lexical scoping. What this means is, that, fucntions
+are executed using the variable scope that was in effect at the moment they were defined, not the variable scope
+that is in effect at the moment they(functions) are invoked.
+
+In order for this lexical scope to be implemented, the internal state of a JavaScript function object must 
+include the code of the function AND a reference to the current scope chain.
+
+This combination of a function object and a scope (a set of variable bindingd) in which the function's variables
+are resolved, is a closure.
+
+Closure become interesting when they are invoked under a different scope chain that the one that was in effect when they
+were defined. This happens most commonly when a nested function object is returned from a function within which it was
+defined.
+
+Example:
+
+Using the code that was defined in the file a "simpe counter":
+
+function increaseNumeral () {
+  return increaseNumeral.counter++; //increment and return the counter property with each invocation
+}
+
+increaseNumeral.counter = 0; //initialize the counter property to 0. This can be done before or after declaring the
+                              //function, because function declarations are hoisted
+                              
+                              
+Closures capture the local varibles of a single function invocation and can use those variables as private state.
+
+Using the simple counter with a closure:
+
+var increaseNumeral = (function() {   //Define and invoke
+                        counter = 0   //Private state of function below
+                        return function() {
+                          return counter++;
+                        };
+                      }());
+                      
+                      
+                      
+Note that it is the nested function object that gets assigned to increaseNumeral. The nested function has access to the 
+variables in scope, and can use the counter variable defined in the outer function. Once that outer function returns,
+no other code can see the counter variable: the inner function has exclusive access to it.
