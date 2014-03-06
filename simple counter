@@ -17,4 +17,4 @@ increaseNumeral.counter = 0;  //initialize the counter property to 0. This can b
                               
 
 increaseNumeral (); //0
-increaseNumeral (); //1 .... each time you invoke the function the result with increase by 1
+increaseNumeral (); //1 .... each time you invoke the function the result will increase by 1
