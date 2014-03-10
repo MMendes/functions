@@ -32,3 +32,35 @@ o.b => 10
 o.c = 50;                   //we have defined the value of c as 50
 
 o.a => 25                   //a in now set to 25 ( half the value of c => 50/2)
+
+
+
+Here is a nother example:
+
+//This object generates strictly increasing serial numbers
+var serialnum = {
+    //This data property hold the next serial number
+    //The $ in the property name hints it's a private property
+    $n: 0,
+    
+    //return the current value and increment it
+    get next() {
+        return this.$n++;
+    },
+    
+    //set a new value for n, but only if it's larger than current
+    set next(n) {
+        if (n>= this.$n) this.$n = n;
+        //throw and error message if n is not larger than current
+        else throw "Serial number can only be set to a larger value";
+    },
+};
+
+//set the value of n to 2
+serialnum.next = 2;  => 2
+
+//set the value of n to 3
+serialnum.next = 3;  => 3
+
+//set the value of n to 1. This is decreasing the valur from 3. It will, as expected, throw an error
+serialnum.next = 1;  => Serial number can only be set to a larger value
